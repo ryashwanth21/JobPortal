@@ -1,0 +1,33 @@
+<div class="form-wrapper">
+  <form (ngSubmit)="applyForJob()" #applicationForm="ngForm" class="application-form">
+    <mat-card class="application-card">
+      <mat-card-title>Apply for This Job</mat-card-title>
+
+      <!-- 🔹 Job Brief Info -->
+      <div class="job-brief" *ngIf="jobBrief">
+        <p><strong>Position:</strong> {{ jobBrief.job_title }}</p>
+        <p><strong>Company:</strong> {{ jobBrief.company_name }}</p>
+        <p><strong>Location:</strong> {{ jobBrief.location }}</p>
+        <p><strong>Type:</strong> {{ jobBrief.job_type }}</p>
+      </div>
+
+      <mat-card-content>
+        <mat-form-field appearance="outline" class="full-width">
+          <mat-label>Name</mat-label>
+          <input matInput [(ngModel)]="applicantName" name="applicantName" required />
+        </mat-form-field>
+
+        <mat-form-field appearance="outline" class="full-width">
+          <mat-label>Email</mat-label>
+          <input matInput type="email" [(ngModel)]="applicantEmail" name="applicantEmail" required />
+        </mat-form-field>
+      </mat-card-content>
+
+      <mat-card-actions align="end">
+        <button mat-raised-button color="primary" type="submit" [disabled]="!applicationForm.form.valid">
+          Submit Application
+        </button>
+      </mat-card-actions>
+    </mat-card>
+  </form>
+</div>

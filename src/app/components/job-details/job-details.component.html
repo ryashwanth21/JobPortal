@@ -1,0 +1,42 @@
+<div *ngIf="job" class="job-details-container">
+  <mat-card class="job-details-card">
+    <mat-card-header>
+      <mat-card-title>{{ job.job_title }}</mat-card-title>
+      <mat-card-subtitle>{{ job.company_name }}</mat-card-subtitle>
+    </mat-card-header>
+
+    <mat-card-content>
+      <div class="info-row">
+        <p><strong>📍 Location:</strong> {{ job.location }}</p>
+        <p><strong>⏱️ Type:</strong> {{ job.job_type }}</p>
+      </div>
+
+      <div class="info-row">
+        <p><strong>💰 Salary:</strong> {{ job.salary_range || 'Not Provided' }}</p>
+        <p><strong>🗓️ Deadline:</strong> {{ job.application_deadline | date:'mediumDate' }}</p>
+      </div>
+
+      <div class="description">
+        <p><strong>📄 Description:</strong></p>
+        <p>{{ job.job_description }}</p>
+      </div>
+    </mat-card-content>
+
+    <mat-card-actions align="end" class="action-footer">
+
+      <div class="left-actions">
+        <button mat-stroked-button color="accent" (click)="goBack()">🔙 Back</button>
+        <button mat-icon-button color="warn" (click)="toggleFavorite()">
+          <mat-icon>{{ isFavorite ? 'favorite' : 'favorite_border' }}</mat-icon>
+        </button>
+        <button mat-icon-button (click)="shareJob()">
+          <mat-icon>share</mat-icon>
+        </button>
+      </div>
+
+      <button mat-raised-button color="primary" class="apply-btn" (click)="navigateToApply()">
+        🚀 Apply Now
+      </button>
+    </mat-card-actions>
+  </mat-card>
+</div>

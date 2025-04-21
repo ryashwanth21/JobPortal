@@ -1,0 +1,252 @@
+.job-list-container {
+  padding: 20px;
+  max-width: 1200px;
+  margin: auto;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.dark-mode {
+  background-color: #181818;
+  color: #eaeaea;
+}
+
+/* Header */
+.header-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 24px;
+  flex-wrap: wrap;
+}
+
+.page-title {
+  font-size: 26px;
+  font-weight: bold;
+  color: #333;
+}
+
+.dark-mode .page-title {
+  color: #ffffff;
+}
+
+.actions button {
+  margin-left: 12px;
+}
+
+/* Filters */
+.filter-container {
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+  margin: 20px 0;
+  justify-content: center;
+}
+
+mat-form-field {
+  width: 250px;
+}
+
+.dark-mode mat-form-field {
+  background-color: #2c2c2c;
+  border-radius: 6px;
+}
+
+.dark-mode input,
+.dark-mode .mat-input-element,
+.dark-mode .mat-select-value,
+.dark-mode .mat-option-text,
+.dark-mode .mat-form-field-label,
+.dark-mode .mat-select-arrow {
+  color: #f1f1f1 !important;
+}
+
+.dark-mode .mat-form-field-label {
+  color: #ccc !important;
+}
+
+.dark-mode input::placeholder {
+  color: #aaa !important;
+}
+
+.dark-mode .mat-select-panel {
+  background-color: #2c2c2c;
+  color: #f1f1f1;
+}
+
+.dark-mode .mat-option.mat-selected {
+  background-color: #3f51b5;
+  color: #fff;
+}
+
+/* Cards */
+.responsive-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 20px;
+}
+
+.job-card {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  border-radius: 10px;
+  background-color: #fff;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+}
+
+.job-card.hovered {
+  transform: translateY(-6px);
+  box-shadow: 0 10px 22px rgba(0, 0, 0, 0.2);
+}
+
+.dark-mode .job-card,
+.dark-mode mat-card {
+  background-color: #232323;
+  color: #f1f1f1;
+  border: 1px solid #333;
+}
+
+.dark-mode mat-card-title,
+.dark-mode mat-card-subtitle,
+.dark-mode mat-card-content {
+  color: #f1f1f1 !important;
+}
+
+mat-card-content p {
+  margin: 4px 0;
+  font-size: 14px;
+}
+
+mat-card-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+}
+
+/* Pagination */
+.pagination {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.pagination button {
+  padding: 8px 14px;
+  border: none;
+  background-color: #e0e0e0;
+  color: #333;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.pagination button.active {
+  background-color: #3f51b5;
+  color: #fff;
+  font-weight: bold;
+}
+
+.pagination button:hover {
+  background-color: #c5c5c5;
+}
+
+.dark-mode .pagination button {
+  background-color: #3a3a3a;
+  color: #eaeaea;
+}
+
+.dark-mode .pagination button.active {
+  background-color: #7986cb;
+}
+
+/* Fallback */
+.no-jobs {
+  text-align: center;
+  font-size: 16px;
+  color: gray;
+  margin-top: 40px;
+}
+
+.dark-mode .no-jobs {
+  color: #bbbbbb;
+}
+
+.lazy-load {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+/* Fix mat-label color in dark mode */
+.dark-mode ::ng-deep .mat-form-field-label {
+  color: #ccc !important;
+}
+.dark-mode mat-form-field {
+  background-color: #232323;
+  color: #f1f1f1;
+  border-radius: 6px;
+}
+
+.dark-mode .mat-form-field-label,
+.dark-mode .mat-input-element,
+.dark-mode .mat-select-value {
+  color: #f1f1f1 !important;
+}
+
+.dark-mode .mat-form-field-appearance-outline .mat-form-field-outline {
+  color: #666;
+  stroke: #444 !important; /* Outline border color */
+}
+
+.dark-mode .mat-form-field-appearance-outline .mat-form-field-outline-thick {
+  stroke: #888 !important;
+}
+
+.dark-mode ::ng-deep .mat-form-field-flex {
+  background-color: #232323 !important;
+  border-radius: 6px;
+}
+
+/* Optional: mat-select panel options in dropdown */
+.dark-mode ::ng-deep .mat-select-panel {
+  background-color: #2a2a2a !important;
+  color: #f1f1f1 !important;
+}
+
+.dark-mode ::ng-deep .mat-option {
+  background-color: #2a2a2a !important;
+  color: #f1f1f1 !important;
+}
+
+/* Fix placeholder color in dark mode */
+.dark-mode ::ng-deep input::placeholder {
+  color: #bbb !important;
+}
+
+/* Optional: make underline visible in dark mode */
+.dark-mode ::ng-deep .mat-form-field-underline {
+  background-color: #444;
+}
+
+/* Optional: adjust border for outline fields */
+.dark-mode ::ng-deep .mat-form-field-appearance-outline .mat-form-field-outline {
+  color: #777;
+  stroke: #555 !important;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .filter-container {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  mat-form-field {
+    width: 100%;
+  }
+
+  .header-bar {
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+  }
+}

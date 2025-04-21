@@ -1,0 +1,16 @@
+<div class="profile-container" *ngIf="user">
+    <mat-card class="profile-card">
+      <mat-card-title>👤 Welcome, {{ user.full_name || user.username }}</mat-card-title>
+      <mat-card-content>
+        <div class="profile-info">
+          <p><strong>ID:</strong> {{ user.id }}</p>
+          <p><strong>Username:</strong> {{ user.username }}</p>
+          <p><strong>Full Name:</strong> {{ user.full_name }}</p>
+          <p><strong>Email:</strong> {{ user.email }}</p>
+          <p><strong>Phone:</strong> {{ user.phone || 'N/A' }}</p>
+          <p><strong>Role:</strong> {{ user.role || 'User' }}</p>
+        </div>
+      </mat-card-content>
+    </mat-card>
+  </div>
+  

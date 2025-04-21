@@ -1,0 +1,73 @@
+
+  .left-actions {
+    display: flex;
+    gap: 12px;
+    align-items: center;
+  }
+  
+  .apply-btn {
+    padding: 10px 24px;
+    font-size: 1rem;
+  }
+  
+  mat-icon {
+    font-size: 24px;
+  }
+  .action-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    margin-top: 20px;
+  }
+  
+  .left-actions {
+    display: flex;
+    gap: 12px;
+    align-items: center;
+  }
+  .job-details-container {
+    max-width: 800px;
+    margin: 40px auto;
+    padding: 20px;
+  }
+  
+  .job-details-card {
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 8px 18px rgba(0, 0, 0, 0.05);
+    background-color: #fff;
+  }
+  
+  mat-card-title {
+    font-size: 1.8rem;
+    font-weight: bold;
+    color: #007bff;
+  }
+  
+  mat-card-subtitle {
+    font-size: 1rem;
+    color: #555;
+  }
+  
+  mat-card-content {
+    margin-top: 20px;
+  }
+  
+  .info-row {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+    margin-bottom: 15px;
+    flex-wrap: wrap;
+  }
+  
+  .description {
+    margin-top: 20px;
+    font-size: 1rem;
+    line-height: 1.6;
+    color: #333;
+  }
+   
+  
+  

@@ -1,0 +1,32 @@
+<div class="favorites-container">
+    <h2>Your Saved Jobs ❤️</h2>
+  
+    <div *ngIf="favoriteJobs.length > 0; else noFavorites">
+      <mat-grid-list cols="3" gutterSize="20px" rowHeight="1:1.2">
+        <mat-grid-tile *ngFor="let job of favoriteJobs">
+          <mat-card class="job-card">
+            <mat-card-header>
+              <mat-card-title>{{ job.job_title }}</mat-card-title>
+              <mat-card-subtitle>{{ job.company_name }}</mat-card-subtitle>
+            </mat-card-header>
+  
+            <mat-card-content>
+              <p><strong>📍 Location:</strong> {{ job.location }}</p>
+              <p><strong>💼 Type:</strong> {{ job.job_type }}</p>
+              <p><strong>💰 Salary:</strong> {{ job.salary_range || 'N/A' }}</p>
+            </mat-card-content>
+  
+            <mat-card-actions align="end">
+              <button mat-button color="primary" (click)="viewDetails(job.id!)">View Details</button>
+              <button mat-button color="warn" (click)="removeFromFavorites(job.id!)">Remove</button>
+            </mat-card-actions>
+          </mat-card>
+        </mat-grid-tile>
+      </mat-grid-list>
+    </div>
+  
+    <ng-template #noFavorites>
+      <p>You haven’t saved any jobs yet. ❤️</p>
+    </ng-template>
+  </div>
+  

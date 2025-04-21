@@ -1,0 +1,80 @@
+<style>
+  .login-wrapper {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #f3f4f6;
+    padding: 20px;
+  }
+
+  .login-card {
+    width: 100%;
+    max-width: 400px;
+    padding: 32px;
+    border-radius: 16px;
+    background-color: #ffffff;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+    text-align: center;
+  }
+
+  .title {
+    font-size: 28px;
+    font-weight: 600;
+    margin-bottom: 24px;
+    color: #3f51b5;
+  }
+
+  .login-form {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  .full-width {
+    width: 100%;
+  }
+
+  .login-btn {
+    height: 48px;
+    font-size: 16px;
+    border-radius: 8px;
+  }
+
+  .register-link {
+    margin-top: 16px;
+    font-size: 14px;
+  }
+
+  .register-link a {
+    color: #3f51b5;
+    text-decoration: none;
+    font-weight: 500;
+  }
+</style>
+
+<div class="login-wrapper">
+  <mat-card class="login-card">
+    <h2 class="title">Login</h2>
+
+    <form (ngSubmit)="login()" class="login-form">
+      <mat-form-field appearance="outline" class="full-width">
+        <mat-label>Email</mat-label>
+        <input matInput type="email" [(ngModel)]="email" name="email" required />
+      </mat-form-field>
+
+      <mat-form-field appearance="outline" class="full-width">
+        <mat-label>Password</mat-label>
+        <input matInput type="password" [(ngModel)]="password" name="password" required />
+      </mat-form-field>
+
+      <button mat-raised-button color="primary" type="submit" class="full-width login-btn">
+        Login
+      </button>
+    </form>
+
+    <p class="register-link">
+      Don't have an account? <a routerLink="/register">Register</a>
+    </p>
+  </mat-card>
+</div>

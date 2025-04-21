@@ -1,0 +1,46 @@
+.sidenav-container {
+    height: 64px; // Just the navbar height, not full-page
+    position: relative;
+    z-index: 1000;
+  }
+  
+  .main-toolbar {
+    display: flex;
+    justify-content: space-between;
+    padding: 0 16px;
+    height: 64px;
+  }
+  
+  .logo {
+    font-weight: bold;
+    font-size: 20px;
+    cursor: pointer;
+  }
+  
+  .spacer {
+    flex: 1 1 auto;
+  }
+  
+  .desktop-links {
+    display: flex;
+    align-items: center;
+  }
+  
+  .mobile-toggle {
+    display: none;
+  }
+  
+  .mobile-sidenav {
+    width: 200px;
+  }
+  
+  @media (max-width: 768px) {
+    .desktop-links {
+      display: none;
+    }
+  
+    .mobile-toggle {
+      display: inline-flex;
+    }
+  }
+  

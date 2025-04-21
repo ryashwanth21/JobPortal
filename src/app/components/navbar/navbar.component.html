@@ -1,0 +1,47 @@
+<mat-sidenav-container class="sidenav-container">
+  <mat-sidenav #sidenav mode="over" class="mobile-sidenav">
+    <mat-nav-list>
+      <a mat-list-item routerLink="/" (click)="sidenav.close()">Home</a>
+      <a mat-list-item routerLink="/jobs" (click)="sidenav.close()">View Jobs</a>
+      <a mat-list-item routerLink="/jobs/new" (click)="sidenav.close()">Post Job</a>
+      <a mat-list-item routerLink="/favorites" (click)="sidenav.close()">⭐ Favorites</a>
+
+      <ng-container *ngIf="!isLoggedIn">
+        <a mat-list-item routerLink="/login" (click)="sidenav.close()">Login</a>
+      </ng-container>
+
+      <ng-container *ngIf="isLoggedIn">
+        <a mat-list-item (click)="sidenav.close()" routerLink="/profile">👤 {{ userName }}</a>
+        <a mat-list-item (click)="logout()">Logout</a>
+      </ng-container>
+    </mat-nav-list>
+  </mat-sidenav>
+
+  <mat-toolbar color="primary" class="main-toolbar">
+    <button mat-icon-button class="mobile-toggle" (click)="sidenav.toggle()">
+      <mat-icon>menu</mat-icon>
+    </button>
+
+    <span class="logo" routerLink="/" style="cursor: pointer;">Job Portal</span>
+
+    <span class="spacer"></span>
+
+    <div class="desktop-links">
+      <button mat-button routerLink="/">Home</button>
+      <button mat-button routerLink="/jobs">View Jobs</button>
+      <button mat-button routerLink="/jobs/new">Post Job</button>
+      <a mat-button routerLink="/favorites">⭐ Favorites</a>
+
+      <ng-container *ngIf="!isLoggedIn">
+        <button mat-button routerLink="/login">Login</button>
+      </ng-container>
+
+      <ng-container *ngIf="isLoggedIn">
+        <button mat-button routerLink="/profile">👤 {{ userName }}</button>
+        <button mat-button (click)="logout()">Logout</button>
+      </ng-container>
+    </div>
+  </mat-toolbar>
+
+  <ng-content></ng-content>
+</mat-sidenav-container>

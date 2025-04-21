@@ -1,0 +1,95 @@
+<style>
+  .register-wrapper {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #f3f4f6;
+    padding: 20px;
+  }
+
+  .register-card {
+    width: 100%;
+    max-width: 500px;
+    padding: 32px;
+    border-radius: 16px;
+    background-color: #ffffff;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+    text-align: center;
+  }
+
+  .title {
+    font-size: 28px;
+    font-weight: 600;
+    margin-bottom: 24px;
+    color: #3f51b5;
+  }
+
+  .register-form {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  .full-width {
+    width: 100%;
+  }
+
+  .register-btn {
+    height: 48px;
+    font-size: 16px;
+    border-radius: 8px;
+  }
+
+  .login-link {
+    margin-top: 16px;
+    font-size: 14px;
+  }
+
+  .login-link a {
+    color: #3f51b5;
+    text-decoration: none;
+    font-weight: 500;
+  }
+</style>
+
+<div class="register-wrapper">
+  <mat-card class="register-card">
+    <h2 class="title">Register</h2>
+
+    <form (ngSubmit)="register()" class="register-form">
+      <mat-form-field appearance="outline" class="full-width">
+        <mat-label>Full Name</mat-label>
+        <input matInput [(ngModel)]="user.full_name" name="full_name" required />
+      </mat-form-field>
+
+      <mat-form-field appearance="outline" class="full-width">
+        <mat-label>Username</mat-label>
+        <input matInput [(ngModel)]="user.username" name="username" required />
+      </mat-form-field>
+
+      <mat-form-field appearance="outline" class="full-width">
+        <mat-label>Email</mat-label>
+        <input matInput type="email" [(ngModel)]="user.email" name="email" required />
+      </mat-form-field>
+
+      <mat-form-field appearance="outline" class="full-width">
+        <mat-label>Password</mat-label>
+        <input matInput type="password" [(ngModel)]="user.password" name="password" required />
+      </mat-form-field>
+
+      <mat-form-field appearance="outline" class="full-width">
+        <mat-label>Phone</mat-label>
+        <input matInput type="tel" [(ngModel)]="user.phone" name="phone" />
+      </mat-form-field>
+
+      <button mat-raised-button color="primary" type="submit" class="full-width register-btn">
+        Register
+      </button>
+    </form>
+
+    <p class="login-link">
+      Already have an account? <a routerLink="/login">Login</a>
+    </p>
+  </mat-card>
+</div>

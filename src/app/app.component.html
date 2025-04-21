@@ -1,0 +1,20 @@
+<!-- NAVBAR -->
+<app-navbar *ngIf="shouldShowLayout()"></app-navbar>
+
+<!-- Welcome Text -->
+<ng-container *ngIf="userName">
+  <div class="welcome-banner">
+    <h2 class="welcome-text">👋 Hello, {{ userName }}</h2>
+  </div>
+</ng-container>
+
+<!-- Main Content -->
+<div class="main-content-container">
+  <router-outlet></router-outlet>
+</div>
+
+<!-- Footer -->
+<footer class="app-footer" *ngIf="shouldShowLayout()">
+  <p>🚀 Developed by <strong>R Yashwanth</strong></p>
+  <p> Contact: ryashwanth2005@gmail.com</p>
+</footer>

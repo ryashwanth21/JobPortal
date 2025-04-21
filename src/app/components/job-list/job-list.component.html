@@ -1,0 +1,81 @@
+<div class="job-list-container" [class.dark-mode]="isDarkMode">
+  <div class="header-bar">
+    <h2 class="page-title">Available Job Opportunities</h2>
+    <div class="actions">
+      <button mat-button (click)="toggleDarkMode()">
+        {{ isDarkMode ? '🌞 Light Mode' : '🌙 Dark Mode' }}
+      </button>
+      <button mat-raised-button color="primary" (click)="navigateToCreateJob()">
+        + Post a New Job
+      </button>
+    </div>
+  </div>
+
+  <div class="filter-container">
+    <mat-form-field appearance="outline" class="dark-field">
+      <mat-label>Search</mat-label>
+      <input matInput [(ngModel)]="searchText" (input)="filterJobs()" placeholder="Title or Company" />
+    </mat-form-field>
+
+    <mat-form-field appearance="outline" class="dark-field">
+      <mat-label>Job Type</mat-label>
+      <mat-select [(ngModel)]="selectedJobType" (selectionChange)="filterJobs()">
+        <mat-option value="">All</mat-option>
+        <mat-option value="Full-time">Full-time</mat-option>
+        <mat-option value="Part-time">Part-time</mat-option>
+        <mat-option value="Contract">Contract</mat-option>
+        <mat-option value="Internship">Internship</mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <mat-form-field appearance="outline" class="dark-field">
+      <mat-label>Location</mat-label>
+      <input matInput [(ngModel)]="selectedLocation" (input)="filterJobs()" placeholder="e.g. New York" />
+    </mat-form-field>
+  </div>
+
+  <div class="responsive-grid" *ngIf="filteredJobs.length > 0">
+    <div class="job-card"
+         *ngFor="let job of paginatedJobs"
+         [class.hovered]="hovered === job.id"
+         (mouseenter)="hovered = job.id ?? null"
+         (mouseleave)="hovered = null">
+      <mat-card [ngClass]="{ 'dark-card': isDarkMode }">
+        <mat-card-header>
+          <mat-card-title>{{ job.job_title }}</mat-card-title>
+          <mat-card-subtitle>{{ job.company_name }}</mat-card-subtitle>
+        </mat-card-header>
+
+        <mat-card-content>
+          <p><strong>Location:</strong> {{ job.location }}</p>
+          <p><strong>Type:</strong> {{ job.job_type }}</p>
+          <p><strong>Salary:</strong> {{ job.salary_range || 'N/A' }}</p>
+          <p><strong>Deadline:</strong> {{ job.application_deadline | date:'mediumDate' }}</p>
+        </mat-card-content>
+
+        <mat-card-actions align="end">
+          <button mat-button color="primary" (click)="navigateToJobDetails(job.id!)">Details</button>
+          <button mat-button color="accent" (click)="navigateToEditJob(job.id!)">Edit</button>
+          <button mat-raised-button color="warn" (click)="navigateToJobApplicationForm(job.id!)">Apply</button>
+        </mat-card-actions>
+      </mat-card>
+    </div>
+  </div>
+
+  <div class="pagination" *ngIf="totalPages > 1">
+    <button
+      *ngFor="let page of [].constructor(totalPages); let i = index"
+      (click)="changePage(i + 1)"
+      [class.active]="currentPage === i + 1">
+      {{ i + 1 }}
+    </button>
+  </div>
+
+  <div class="lazy-load" *ngIf="hasMorePages">
+    <button mat-stroked-button color="primary" (click)="loadMoreJobs()">Load More</button>
+  </div>
+
+  <div *ngIf="filteredJobs.length === 0" class="no-jobs">
+    No jobs match your search criteria.
+  </div>
+</div>

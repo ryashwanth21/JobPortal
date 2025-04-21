@@ -1,0 +1,64 @@
+<form (ngSubmit)="saveJob()" #jobForm="ngForm" class="job-form-container">
+
+  <mat-card>
+    <mat-card-title>{{ isEditMode ? 'Update Job' : 'Create New Job' }}</mat-card-title>
+    <mat-card-content>
+
+      <!-- Job Title -->
+      <mat-form-field appearance="outline" class="full-width">
+        <mat-label>Job Title</mat-label>
+        <input matInput [(ngModel)]="job.job_title" name="job_title" required />
+      </mat-form-field>
+
+      <!-- Company Name -->
+      <mat-form-field appearance="outline" class="full-width">
+        <mat-label>Company Name</mat-label>
+        <input matInput [(ngModel)]="job.company_name" name="company_name" required />
+      </mat-form-field>
+
+      <!-- Location -->
+      <mat-form-field appearance="outline" class="full-width">
+        <mat-label>Location</mat-label>
+        <input matInput [(ngModel)]="job.location" name="location" required />
+      </mat-form-field>
+
+      <!-- Job Type -->
+      <mat-form-field appearance="outline" class="full-width">
+        <mat-label>Job Type</mat-label>
+        <mat-select [(ngModel)]="job.job_type" name="job_type" required>
+          <mat-option value="Full-time">Full-time</mat-option>
+          <mat-option value="Part-time">Part-time</mat-option>
+          <mat-option value="Contract">Contract</mat-option>
+          <mat-option value="Internship">Internship</mat-option>
+        </mat-select>
+      </mat-form-field>
+
+      <!-- Salary Range -->
+      <mat-form-field appearance="outline" class="full-width">
+        <mat-label>Salary Range</mat-label>
+        <input matInput [(ngModel)]="job.salary_range" name="salary_range" placeholder="e.g., $60,000 - $80,000" />
+      </mat-form-field>
+
+      <!-- Job Description -->
+      <mat-form-field appearance="outline" class="full-width">
+        <mat-label>Job Description</mat-label>
+        <textarea matInput rows="5" [(ngModel)]="job.job_description" name="job_description" required></textarea>
+      </mat-form-field>
+
+      <!-- Application Deadline -->
+      <mat-form-field appearance="outline" class="full-width">
+        <mat-label>Application Deadline</mat-label>
+        <input matInput [matDatepicker]="picker" [(ngModel)]="job.application_deadline" name="application_deadline" required />
+        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-datepicker #picker></mat-datepicker>
+      </mat-form-field>
+
+    </mat-card-content>
+
+    <mat-card-actions align="end">
+      <button mat-raised-button color="primary" type="submit" [disabled]="!jobForm.form.valid">
+        {{ isEditMode ? 'Update Job' : 'Create Job' }}
+      </button>
+    </mat-card-actions>
+  </mat-card>
+</form>
